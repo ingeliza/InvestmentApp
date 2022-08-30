@@ -1,5 +1,11 @@
 import Head from 'next/head'
 
 export default function Home() {
-  return "Hello world!"
+  return (
+    <div>
+      <p>Create stock</p>
+
+      
+    </div>
+  )
 }
