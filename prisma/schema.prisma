@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model client {
+  id         Int     @id @default(autoincrement()) @db.UnsignedInt
+  username   String  @db.Char(255)
+  cash       Int
+  gainOrLoss Int
+  stock      stock[]
+}
+
+model stock {
+  id           Int       @id @default(autoincrement()) @db.UnsignedInt
+  company      String    @db.Char(255)
+  unitPrice    Int
+  currentPrice Int
+  updatedAt    DateTime? @db.Date
+  volume       Int?
+  clientId     Int?      @db.UnsignedInt
+  gainOrLoss   Int
+  client       client?   @relation(fields: [clientId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "stock_ibfk_1")
+
+  @@index([clientId], map: "clientId")
+}
