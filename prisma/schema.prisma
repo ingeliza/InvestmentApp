@@ -14,7 +14,7 @@ model client {
   id         Int     @id @default(autoincrement()) @db.UnsignedInt
   username   String  @db.Char(255)
   cash       Int
-  gainOrLoss Int
+  gainOrLoss Decimal
   stock      stock[]
 }
 
@@ -26,7 +26,7 @@ model stock {
   updatedAt    DateTime? @db.Date
   volume       Int?
   clientId     Int?      @db.UnsignedInt
-  gainOrLoss   Int
+  gainOrLoss   Decimal
   client       client?   @relation(fields: [clientId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "stock_ibfk_1")
 
   @@index([clientId], map: "clientId")

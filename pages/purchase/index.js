@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 
 
-export default function home(){
+export default function Purchase(){
 
   const [valueCompany, setValueCompany] = useState("b");
   const [valueClient, setValueClient] = useState("b");

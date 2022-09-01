@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 
 
-export default function home(){
+export default function Home(){
 
   const [value, setValue] = useState("b");
 
