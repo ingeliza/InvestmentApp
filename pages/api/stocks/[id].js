@@ -5,10 +5,13 @@ const prisma = new PrismaClient()
 
 
 export default async function handler(req, res) {
-  const {id} = req.query;
-  const getStock = await prisma.stock.findUnique({
-    where: {
-      id: parseInt({id}.id),
-    }})
-  res.json(getStock)
+  if (req.method === 'GET'){
+    const {id} = req.query;
+    const getStock = await prisma.stock.findUnique({
+      where: {
+        id: parseInt({id}.id),
+      }})
+    res.json(getStock)
+  }
+  
 }
