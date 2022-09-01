@@ -13,7 +13,6 @@ export default function home(){
 
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
-
   
 
   return (
@@ -45,6 +44,9 @@ export default function home(){
         <input type="text" id="currentPrice" name="currentPrice" placeholder="Unit price"></input><br/>
         <button type="submit" value="Submit">Submit</button><br/>
       </form>
+
+
+      
     </div>
 
     
